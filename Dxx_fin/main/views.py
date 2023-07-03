@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView
 # from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -10,7 +10,7 @@ from django.views.generic.edit import FormView
 from main.forms import RegisterForm
 #
 #
-
+@login_required
 def profile_view(request):
     return render(request, 'main/profile.html')
 
@@ -18,7 +18,7 @@ def profile_view(request):
 class RegisterView(FormView):
 
     form_class = RegisterForm
-    template_name = 'main/register.html'
+    template_name = 'registration/register.html'
     success_url = reverse_lazy('main:profile')
     def form_valid(self, form):
         form.save()
@@ -32,5 +32,3 @@ class WebPasswordResetView(PasswordResetView):
 def index(request):
     return render(request, 'main/index.html')
 
-def login (request):
-    return render(request, 'main/login.html')

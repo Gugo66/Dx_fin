@@ -147,11 +147,11 @@ CACHES = {
 }
 
 # celery setting.
-CELERY_CACHE_BACKEND = 'default'
+# CELERY_CACHE_BACKEND = 'default'
 #
-CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+# CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
-CSRF_TRUSTED_ORIGINS = ["http://oracle.soaqa.ru"]
+# CSRF_TRUSTED_ORIGINS = ["http://oracle.soaqa.ru"]
 #
 LOGIN_REDIRECT_URL = reverse_lazy("main:profile")
 #
