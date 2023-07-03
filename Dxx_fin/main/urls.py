@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import profile_view, RegisterView, index, WebPasswordResetView
+from .views import *
 
 
 app_name = "main"
