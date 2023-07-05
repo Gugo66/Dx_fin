@@ -139,7 +139,7 @@ CACHES = {
 }
 
 
-#
+
 LOGIN_REDIRECT_URL = reverse_lazy("main:profile")
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
