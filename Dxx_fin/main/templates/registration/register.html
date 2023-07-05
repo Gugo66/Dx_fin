@@ -2,34 +2,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>register</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+    <title>Регистрация</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 <body>
-
-		<div class="main-agileinfo">
-			<div class="agileits-top">
-				<form method="post">
-                    {% csrf_token %}
-					<input class="text" type="text" name="username" placeholder="Username" required="">
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" name="password1" placeholder="Password" required="">
-					<input class="text w3lpass" type="password" name="password2" placeholder="Confirm Password" required="">
-					<div class="wthree-text">
-
-						<div class="clear"> </div>
-					</div>
-                    {{ form.errors }}
-					<input type="submit" value="SIGNUP">
-				</form>
-				<p> <a href="{% url 'login' %}"> Login Now!</a></p>
-			</div>
-		</div>
-
-
-
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <h1>Регистрация</h1>
+            <form method="post">
+                {% csrf_token %}
+                <input class="text" type="text" name="username" placeholder="Username" required="">
+                <input class="text email" type="email" name="email" placeholder="Email" required="">
+                <input class="text" type="password" name="password1" placeholder="Password" required="">
+                <input class="text w3lpass" type="password" name="password2" placeholder="Confirm Password" required="">
+                <div class="wthree-text">
+                    <div class="clear"> </div>
+                </div>
+                {{ form.errors }}
+                <input type="submit" value="SIGNUP">
+            </form>
+            <p> <a href="{% url 'login' %}"> Login Now!</a></p>
+        </div>
+    </div>
 </body>
 </html>
+
+
