@@ -1,15 +1,12 @@
 from django.shortcuts import render
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView
-# from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
 from django.shortcuts import redirect
-# from core.models import Pan, Buyer
 from main.forms import RegisterForm
 from django.core.mail import send_mail#
-#
+
 @login_required
 def profile_view(request):
     return render(request, 'main/profile.html')
@@ -27,8 +24,8 @@ class RegisterView(FormView):
         send_mail(
             'Подтверждение регистрации',
             'Добро пожаловать! Ваша регистрация прошла успешно.',
-            'gurgentadevosyan@mail.ru',  # Адрес отправителя
-            [email],  # Адрес получателя
+            'gurgentadevosyan@mail.ru',  
+            [email],  
             fail_silently=False,
         )
 
