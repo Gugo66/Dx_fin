@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "main",
+    'django_countries'
 ]
 
 MIDDLEWARE = [
@@ -139,7 +140,9 @@ CACHES = {
 }
 
 
-#
+AUTH_USER_MODEL = 'main.CustomUser'
+
+
 LOGIN_REDIRECT_URL = reverse_lazy("main:profile")
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None

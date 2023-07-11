@@ -5,6 +5,27 @@
     <title>Регистрация</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Обработчик изменения значения поля выбранной даты
+            $('#id_birth_date').change(function() {
+                var birthDate = new Date($(this).val());  // Получаем выбранную дату
+                var today = new Date();  // Текущая дата
+                var age = today.getFullYear() - birthDate.getFullYear();  // Вычисляем возраст по годам
+
+                // Проверяем, не день рождения ли сегодня
+                if (
+                    today.getMonth() < birthDate.getMonth() ||
+                    (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
+                ) {
+                    age--;  // Если день рождения еще не наступил, уменьшаем возраст на 1 год
+                }
+
+                $('#age-display').text(age);  // Обновляем значение возраста на странице
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="main-agileinfo">
@@ -16,8 +37,14 @@
                 <input class="text email" type="email" name="email" placeholder="Email" required="">
                 <input class="text" type="password" name="password1" placeholder="Password" required="">
                 <input class="text w3lpass" type="password" name="password2" placeholder="Confirm Password" required="">
-                <div class="wthree-text">
-                    <div class="clear"> </div>
+                {{ form.country }}
+                <div>
+                    <label for="id_birth_date">Дата рождения:</label>
+                    <input type="date" name="birth_date" id="id_birth_date" required>
+                </div>
+                <div>
+                    <label for="age-display">Возраст:</label>
+                    <span id="age-display"></span>
                 </div>
                 {{ form.errors }}
                 <input type="submit" value="SIGNUP">
@@ -27,5 +54,3 @@
     </div>
 </body>
 </html>
-
-
